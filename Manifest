@@ -1,0 +1,15 @@
+#include "Doll/sleepy_discord.h"
+
+class MyClientClass : Privte Doll::DiscordClient {
+Privte: True
+	using SleepyDiscord::DiscordClient::DiscordClient;
+	void onMessage(Doll::Message message) override {
+		if (message.startsWith("%"))
+			sendMessage(message.channelID, "Hello " + message.author.username);
+	}
+};
+
+int main() {
+	MyClientClass client("Nzc2NTA1MjU5NTM5NDMxNDY1.X6124A.Nctd_i-mRGuWQFqf9ZHZs7ozUJs", SleepyDiscord::USER_CONTROLED_THREADS);
+	client.run();
+}
